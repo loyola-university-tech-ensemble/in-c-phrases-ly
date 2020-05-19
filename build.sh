@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 IN_DIR='./src/'
 OUT_DIR='./build/'
 
@@ -17,8 +19,12 @@ function make_svg {
 }
 
 function prep_file {
-  echo "<?xml-stylesheet type='text/css' href='/styles.css' ?>\n$(cat $1)" > $1
-  mv $1 "`echo $1 | sed 's/preview\.//'`"
+  echo -e "<?xml-stylesheet type='text/css' href='/styles.css' ?>\n$(cat $1)" > $1
+  mv $1 "`echo $1 | gsed 's/preview\.//'`"
+}
+
+function make_png {
+  lilypond --loglevel=BASIC_PROGRESS --output=$OUT_DIR -fpng  $1
 }
 
 # Generate SVGs in output directory
@@ -27,6 +33,7 @@ if [[ $# -eq 0 ]] ; then
   for f in $IN_DIR/*/*.ly; do
     [ -f "$f" ] || break
     make_svg $f
+    make_png $f
   done
 
   cd $OUT_DIR
@@ -36,6 +43,7 @@ if [[ $# -eq 0 ]] ; then
   done
 else
   make_svg $1
+  make_png $1
   cd $OUT_DIR
   prep_file "$(echo $1 | grep -E -o '(\d+)').preview.svg"
 fi
