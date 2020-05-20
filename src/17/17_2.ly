@@ -3,7 +3,7 @@
 
 phrase = \relative c {
 
-  \clef "bass_8"
+  \clef "bass"
   \mark "17." 
   b16[ c b c b] r
 

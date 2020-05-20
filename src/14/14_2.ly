@@ -3,7 +3,7 @@
 
 phrase = \relative c {
 
-  \clef "bass_8"
+  \clef "bass"
   \mark "14." 
   \cadenzaOn
   c1 b g fis  
