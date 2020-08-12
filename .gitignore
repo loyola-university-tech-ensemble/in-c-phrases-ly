@@ -1,3 +1,9 @@
+# Editor files
+*.swp
+*.swo
+*.bak
+
+# Generated files
 .DS_Store
 node_modules/
 svgs/
