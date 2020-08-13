@@ -1,6 +1,6 @@
 {
   "name": "@loyola-university-tech-ensemble/in-c-phrases-ly",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lilypond typesetting of the musical phrases of Terry Riley's \"In C\".",
   "main": "index.js",
   "files": [
